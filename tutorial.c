@@ -25,7 +25,7 @@ int main(int argc, char* argv[]){
   g_signal_connect(webView, "close", G_CALLBACK(closeWebViewCb), main_window);
 
   // Load a web page into the browser instance
-  webkit_web_view_load_uri(webView, "http://www.webkitgtk.org/");
+  webkit_web_view_load_uri(webView, "https://www.tokyu.co.jp/unten2/unten.html");
 
   // Make sure that when the browser area becomes visible, it will get mouse
   // and keyboard events
@@ -33,6 +33,10 @@ int main(int argc, char* argv[]){
 
   // Make sure the main window and all its contents are visible
   gtk_widget_show_all(main_window);
+
+  // change font size
+  WebKitSettings *settings = webkit_web_view_get_settings (webView);
+	webkit_settings_set_default_font_size(settings, 64);
 
   // Run the main GTK+ event loop
   gtk_main();
